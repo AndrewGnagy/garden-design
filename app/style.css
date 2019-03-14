@@ -1,0 +1,65 @@
+div#container
+{
+	z-index: 1;
+	background: #000000;
+	width: 768px;
+}
+
+#mainapp
+{
+	width: 768px;
+	height: 512px;
+	position: relative;
+}
+
+#htmlmenus
+{
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+
+.overmenu
+{
+	position: absolute;
+	z-index: 2;
+}
+
+#mainMenuButton
+{
+	right: 10px;
+	top: 10px;
+}
+
+#nameinput
+{
+	top: 20px;
+	padding: 20px;
+}
+
+#dialog
+{
+	left: 20px;
+	top: 20px;
+}
+
+#dialogGarage
+{
+	left:20px;
+	top: 20px;
+}
+
+
+.menu-left
+{
+	float: left;
+	width: 50%;
+}
+
+.menu-right
+{
+	float: right;
+	width: 50%;
+}
