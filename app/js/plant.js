@@ -4,228 +4,378 @@ export function Plant() {
 
 export const plantList = [
    {
-      'name':'Alyssum'
+      "name":"Alyssum",
+      "id":0,
+      "tileColor":"#1fbce8"
    },
    {
-      'name':'Amaranthus'
+      "name":"Amaranthus",
+      "id":1,
+      "tileColor":"#213308"
    },
    {
-      'name':'Amaryllis'
+      "name":"Amaryllis",
+      "id":2,
+      "tileColor":"#8822da"
    },
    {
-      'name':'Ammi Majus'
+      "name":"Ammi Majus",
+      "id":3,
+      "tileColor":"#dc41ab"
    },
    {
-      'name':'Angelonia'
+      "name":"Angelonia",
+      "id":4,
+      "tileColor":"#00a2a2"
    },
    {
-      'name':'Asclepias'
+      "name":"Asclepias",
+      "id":5,
+      "tileColor":"#6f61d3"
    },
    {
-      'name':'Aster'
+      "name":"Aster",
+      "id":6,
+      "tileColor":"#556fc7"
    },
    {
-      'name':"Baby's Breath"
+      "name":"Baby's Breath",
+      "id":7,
+      "tileColor":"#717794"
    },
    {
-      'name':'Balsam'
+      "name":"Balsam",
+      "id":8,
+      "tileColor":"#4fe4e5"
    },
    {
-      'name':'Begonia'
+      "name":"Begonia",
+      "id":9,
+      "tileColor":"#aa8330"
    },
    {
-      'name':'Bells of Ireland'
+      "name":"Bells of Ireland",
+      "id":10,
+      "tileColor":"#55f44e"
    },
    {
-      'name':'Blue Eyed Daisies'
+      "name":"Blue Eyed Daisies",
+      "id":11,
+      "tileColor":"#ad1c9e"
    },
    {
-      'name':'Caladium'
+      "name":"Caladium",
+      "id":12,
+      "tileColor":"#4b6472"
    },
    {
-      'name':'Calendula'
+      "name":"Calendula",
+      "id":13,
+      "tileColor":"#20b03b"
    },
    {
-      'name':'Calibrachoa'
+      "name":"Calibrachoa",
+      "id":14,
+      "tileColor":"#89eafe"
    },
    {
-      'name':'Calla'
+      "name":"Calla",
+      "id":15,
+      "tileColor":"#11e791"
    },
    {
-      'name':'Canna'
+      "name":"Canna",
+      "id":16,
+      "tileColor":"#e6d273"
    },
    {
-      'name':'Celosia'
+      "name":"Celosia",
+      "id":17,
+      "tileColor":"#1d5108"
    },
    {
-      'name':'Chrysanthemum'
+      "name":"Chrysanthemum",
+      "id":18,
+      "tileColor":"#3137a3"
    },
    {
-      'name':'Cleome'
+      "name":"Cleome",
+      "id":19,
+      "tileColor":"#8e5fc6"
    },
    {
-      'name':'Coleus'
+      "name":"Coleus",
+      "id":20,
+      "tileColor":"#8f2acf"
    },
    {
-      'name':'Cornflower'
+      "name":"Cornflower",
+      "id":21,
+      "tileColor":"#e47f28"
    },
    {
-      'name':'Cosmos'
+      "name":"Cosmos",
+      "id":22,
+      "tileColor":"#392ac6"
    },
    {
-      'name':'Cuphea'
+      "name":"Cuphea",
+      "id":23,
+      "tileColor":"#33f99c"
    },
    {
-      'name':'Cypress Vine'
+      "name":"Cypress Vine",
+      "id":24,
+      "tileColor":"#7c4e66"
    },
    {
-      'name':'Dahlias'
+      "name":"Dahlias",
+      "id":25,
+      "tileColor":"#1aa559"
    },
    {
-      'name':'Dianthus'
+      "name":"Dianthus",
+      "id":26,
+      "tileColor":"#87fe61"
    },
    {
-      'name':'Dichondra'
+      "name":"Dichondra",
+      "id":27,
+      "tileColor":"#00fd23"
    },
    {
-      'name':'Dusty Miller'
+      "name":"Dusty Miller",
+      "id":28,
+      "tileColor":"#c1e546"
    },
    {
-      'name':'Elephant Ears'
+      "name":"Elephant Ears",
+      "id":29,
+      "tileColor":"#24309b"
    },
    {
-      'name':'Flowers for Cutting'
+      "name":"Flowers for Cutting",
+      "id":30,
+      "tileColor":"#18b49a"
    },
    {
-      'name':"Four O'Clocks"
+      "name":"Four O'Clocks",
+      "id":31,
+      "tileColor":"#35569e"
    },
    {
-      'name':'Gaillardia'
+      "name":"Gaillardia",
+      "id":32,
+      "tileColor":"#ce3eee"
    },
    {
-      'name':'Geraniums'
+      "name":"Geraniums",
+      "id":33,
+      "tileColor":"#0b478d"
    },
    {
-      'name':'Gerbera'
+      "name":"Gerbera",
+      "id":34,
+      "tileColor":"#238b15"
    },
    {
-      'name':'Gladiolus'
+      "name":"Gladiolus",
+      "id":35,
+      "tileColor":"#7a85a0"
    },
    {
-      'name':'Gomphrena'
+      "name":"Gomphrena",
+      "id":36,
+      "tileColor":"#5b2bfc"
    },
    {
-      'name':'Ice Plants'
+      "name":"Ice Plants",
+      "id":37,
+      "tileColor":"#8c2ce7"
    },
    {
-      'name':'Impatiens'
+      "name":"Impatiens",
+      "id":38,
+      "tileColor":"#c31b95"
    },
    {
-      'name':'Ipomopsis'
+      "name":"Ipomopsis",
+      "id":39,
+      "tileColor":"#cc81a4"
    },
    {
-      'name':'Laurentia'
+      "name":"Laurentia",
+      "id":40,
+      "tileColor":"#9ff80e"
    },
    {
-      'name':'Lisianthus'
+      "name":"Lisianthus",
+      "id":41,
+      "tileColor":"#4b1248"
    },
    {
-      'name':'Lobelias'
+      "name":"Lobelias",
+      "id":42,
+      "tileColor":"#ac3456"
    },
    {
-      'name':'Marigolds'
+      "name":"Marigolds",
+      "id":43,
+      "tileColor":"#40a9de"
    },
    {
-      'name':'Millet'
+      "name":"Millet",
+      "id":44,
+      "tileColor":"#1ba77b"
    },
    {
-      'name':'Moonflowers'
+      "name":"Moonflowers",
+      "id":45,
+      "tileColor":"#4d29ca"
    },
    {
-      'name':'Morning Glories'
+      "name":"Morning Glories",
+      "id":46,
+      "tileColor":"#a0642a"
    },
    {
-      'name':'Nasturtium'
+      "name":"Nasturtium",
+      "id":47,
+      "tileColor":"#fcb0c5"
    },
    {
-      'name':'Nemophila'
+      "name":"Nemophila",
+      "id":48,
+      "tileColor":"#5365b6"
    },
    {
-      'name':'Nicotiana'
+      "name":"Nicotiana",
+      "id":49,
+      "tileColor":"#f2274f"
    },
    {
-      'name':'Ornamental Kale'
+      "name":"Ornamental Kale",
+      "id":50,
+      "tileColor":"#d6fb15"
    },
    {
-      'name':'Pansies'
+      "name":"Pansies",
+      "id":51,
+      "tileColor":"#fd6d18"
    },
    {
-      'name':'Pennisetum'
+      "name":"Pennisetum",
+      "id":52,
+      "tileColor":"#1e5271"
    },
    {
-      'name':'Pentas'
+      "name":"Pentas",
+      "id":53,
+      "tileColor":"#c3a2af"
    },
    {
-      'name':'Petunias'
+      "name":"Petunias",
+      "id":54,
+      "tileColor":"#98adbf"
    },
    {
-      'name':'Phlox Flowers'
+      "name":"Phlox Flowers",
+      "id":55,
+      "tileColor":"#45ccd6"
    },
    {
-      'name':'Poppy'
+      "name":"Poppy",
+      "id":56,
+      "tileColor":"#156d35"
    },
    {
-      'name':'Portulaca'
+      "name":"Portulaca",
+      "id":57,
+      "tileColor":"#fd655f"
    },
    {
-      'name':'Rudbeckias'
+      "name":"Rudbeckias",
+      "id":58,
+      "tileColor":"#3bb20b"
    },
    {
-      'name':'Salvia'
+      "name":"Salvia",
+      "id":59,
+      "tileColor":"#e13087"
    },
    {
-      'name':'Scabiosa'
+      "name":"Scabiosa",
+      "id":60,
+      "tileColor":"#5a8711"
    },
    {
-      'name':'Scaevola'
+      "name":"Scaevola",
+      "id":61,
+      "tileColor":"#54365b"
    },
    {
-      'name':'Snapdragons'
+      "name":"Snapdragons",
+      "id":62,
+      "tileColor":"#965f44"
    },
    {
-      'name':'Statice'
+      "name":"Statice",
+      "id":63,
+      "tileColor":"#a895a4"
    },
    {
-      'name':'Strawflowers'
+      "name":"Strawflowers",
+      "id":64,
+      "tileColor":"#09811e"
    },
    {
-      'name':'Sunflowers'
+      "name":"Sunflowers",
+      "id":65,
+      "tileColor":"#285f81"
    },
    {
-      'name':'Sweet Peas'
+      "name":"Sweet Peas",
+      "id":66,
+      "tileColor":"#50ee94"
    },
    {
-      'name':'Thunbergia'
+      "name":"Thunbergia",
+      "id":67,
+      "tileColor":"#efe126"
    },
    {
-      'name':'Tithonia'
+      "name":"Tithonia",
+      "id":68,
+      "tileColor":"#803e89"
    },
    {
-      'name':'Torenia'
+      "name":"Torenia",
+      "id":69,
+      "tileColor":"#325bef"
    },
    {
-      'name':'Tuberose'
+      "name":"Tuberose",
+      "id":70,
+      "tileColor":"#c4d929"
    },
    {
-      'name':'Verbenas'
+      "name":"Verbenas",
+      "id":71,
+      "tileColor":"#37073c"
    },
    {
-      'name':'Vincas'
+      "name":"Vincas",
+      "id":72,
+      "tileColor":"#3f1ad5"
    },
    {
-      'name':'Violas'
+      "name":"Violas",
+      "id":73,
+      "tileColor":"#e2f8bd"
    },
    {
-      'name':'Zinnias'
+      "name":"Zinnias",
+      "id":74,
+      "tileColor":"#1cc232"
    }
 ]

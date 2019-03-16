@@ -12,54 +12,45 @@ div#container
 	position: relative;
 }
 
-#htmlmenus
+.plant-select-container
 {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 2;
+    height: 300px;
+    width: 600px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.overmenu
+.plant-panel
 {
-	position: absolute;
-	z-index: 2;
+    width: 250px;
+    height: 130px;
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
 }
 
-#mainMenuButton
+.plant-image
 {
-	right: 10px;
-	top: 10px;
-}
-
-#nameinput
-{
-	top: 20px;
-	padding: 20px;
-}
-
-#dialog
-{
-	left: 20px;
-	top: 20px;
-}
-
-#dialogGarage
-{
-	left:20px;
-	top: 20px;
-}
-
-
-.menu-left
-{
+    width: 50px;
+    height: 100px;
+	background: #555555;
+	display: block;
 	float: left;
-	width: 50%;
 }
 
-.menu-right
+.plant-title
 {
-	float: right;
-	width: 50%;
+}
+
+.plant-info
+{
+}
+
+.plant-selected
+{
+    border-style: solid;
+    border-width: 2px;
+    border-color: tomato;
 }
