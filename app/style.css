@@ -26,16 +26,13 @@ div#container
 {
     width: 250px;
     height: 130px;
-    display: inline-block;
     border-style: solid;
     border-width: 1px;
 }
 
 .plant-image
 {
-    width: 50px;
-    height: 100px;
-	background: #555555;
+    padding: 10px 10px;
 	display: block;
 	float: left;
 }

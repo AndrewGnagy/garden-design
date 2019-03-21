@@ -27,7 +27,6 @@ for sub in subcats:
     title = sub.find_element_by_css_selector('.b-clp_subcat-item_title')
     link = sub.find_element_by_css_selector('.b-clp_subcat-item_link')
     #flowers.append({'name': title.text, 'link': link.get_attribute('href')})
-    flowers.append({'name': title.text})
 
 print(flowers)
     

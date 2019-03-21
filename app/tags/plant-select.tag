@@ -1,13 +1,13 @@
 <plant-select>
 <div class="plant-select-container">
-    <div class="plant-panel" each={plant in plantList } onclick={ highlight } data={ plant.id }>
-        <div class="plant-image"></div>
-        <div class="plant-title">
+    <div class="plant-panel" each={ plant in plantList } onclick={ highlight } data={ plant.id }>
+        <img src="img/delph.jpg" class="plant-image"/>
+        <div class="plant-title media-body">
 			<h4>{plant.name}
 				<div class="plant-colorbadge" style="background:{ plant.tileColor };"></div>
 			</h4>
+            <div class="plant-info">lorem ipsum set dolar werdna aotic</div>
 		</div>
-        <div class="plant-info">lorem ipsum set dolar werdna aotic</div>
     </div>
 </div>
 <style>
@@ -23,9 +23,10 @@
 this.plantList = opts.plantList;
 
 highlight(event) {
-    console.log(event.item);
     $(".plant-selected").removeClass("plant-selected");
-    $(event.currentTarget).addClass("plant-selected");
+    let selected = $(event.currentTarget);
+    selected.addClass("plant-selected");
+    riot.store.trigger("plant", _.find(this.plantList, {"id": parseInt(selected.attr("data")) }));
 }
 
 </script>

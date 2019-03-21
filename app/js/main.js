@@ -15,7 +15,6 @@ function start(){
     ctx = document.getElementById('canvas').getContext('2d');
     map = new Map();
     map.draw(ctx);
-    isoDraw(map, "isomer");
     //console.log(JSON.stringify(_.map(plantList, function(plant, i) {
 	//	var randomColor = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
 	//	plant.tileColor = randomColor;
@@ -24,9 +23,7 @@ function start(){
 }
 
 function getMouseTile(evt) {
-    var ctx = $('#canvas')[0].getContext('2d');
     var rect = $('#canvas')[0].getBoundingClientRect();
-
     return {
         x: ~~((evt.clientX - rect.left) / TILE_SIZE),
         y: ~~((evt.clientY - rect.top) / TILE_SIZE)
@@ -35,16 +32,26 @@ function getMouseTile(evt) {
 
 $(document).ready(function(){
     riot.mount("plant-select", {plantList: plantList});
+    riot.mount("info-panel");
+
     $("#canvas").click(function(evt) {
         var clickPos = getMouseTile(evt);
 		//TODO better way?
 		var selected = $(".plant-selected");
 		if (selected.length) {
-			var plant = plantList[parseInt(selected.attr("data"))];
+			var plant = _.find(plantList, {"id": parseInt(selected.attr("data")) });
 			var newTile = new Tile(clickPos.x, clickPos.y, plant);
-			newTile.draw(ctx);
-			map.tiles[clickPos.x][clickPos.y] = newTile;
+			map.addTile(newTile, ctx);
 		}
+    });
+
+    $("#changeView").change(function(evt) {
+        ctx.clearRect(0, 0, 600, 450);
+        if($(this).prop('checked')) {
+            map.draw(ctx);
+        } else {
+            isoDraw(map, "canvas");
+        }
     });
 
     start();
