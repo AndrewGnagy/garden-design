@@ -3,7 +3,7 @@ Grid-based garden design tool (a la Sim City)
 
 An app that allows you to select plant varieties and "stamp" them on a grid. The results can then be viewed in an isometric projection based on the month of the year and each plants unique growth habits. (March: seedlings, June: flowering, etc.) It also provides detailed information about each plant.
 
-![Isometric Flower](https://github.com/AndrewGnagy/garden-design/tree/master/app/img/isometricFlower.png "Isometric Flower")
+![Isometric Flower](https://raw.githubusercontent.com/AndrewGnagy/garden-design/master/app/img/isometricFlower.png "Isometric Flower")
 
 ### Tools
 Riot.js
