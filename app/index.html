@@ -21,14 +21,40 @@
         </div>
         <div>
             View:
-            <input id="changeView" type="checkbox" checked data-toggle="toggle" data-on="Overhead" data-off="Isometric"/>
+            <input id="changeView" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Overhead" data-off="Isometric"/>
         </div>
-        <div>
-            <canvas id="canvas" width="600" height="450"/>
+        <div id="canvas-container">
+            <canvas id="canvas" width="600" height="450"></canvas>
+            <div id="month-overlay">
+                <div class="btn-group  btn-group-sm btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input type="radio" name="options" autocomplete="off" checked> Mar
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" autocomplete="off"> Apr
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" autocomplete="off"> May
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" autocomplete="off"> Jun
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" autocomplete="off"> Jul
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" autocomplete="off"> Aug
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="options" autocomplete="off"> Sep
+                    </label>
+                  </div>
+            </div>
         </div>
         <div id="info-panel">
             <info-panel></info-panel>
         </div>
+
     </div>
 
 </body>
