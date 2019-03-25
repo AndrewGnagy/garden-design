@@ -16,6 +16,7 @@ export const plantList = [
          ]
       },
       "tileColor": "#258968",
+      "tilePattern": "stripes",
       "name": "Alyssum",
       "id": 5
    },

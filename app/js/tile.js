@@ -21,7 +21,24 @@ export function Tile(x, y, plant) {
         ctx.strokeStyle = self.color;
         ctx.fillStyle = self.color;
         ctx.strokeRect(xStart, yStart, TILE_SIZE, TILE_SIZE);
-        switch (this.pattern) {
+        console.log(self.pattern);
+        switch (self.pattern) {
+            case "stripes":
+                //Diagonal lines
+                ctx.strokeStyle = self.color;
+                ctx.beginPath();
+                ctx.moveTo(xStart, yStart);
+                ctx.lineTo(xStart + TILE_SIZE, yStart + TILE_SIZE);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(xStart + 5, yStart);
+                ctx.lineTo(xStart + TILE_SIZE, yStart + TILE_SIZE - 5);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(xStart, yStart + 5);
+                ctx.lineTo(xStart + TILE_SIZE - 5, yStart + TILE_SIZE);
+                ctx.stroke();
+                break;
             case "dots":
             default:
                 point(xStart + 22, yStart + 2, ctx);

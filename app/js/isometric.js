@@ -61,6 +61,14 @@ function drawSeedling(iso, x, y) {
     iso.add(Shape.Pyramid(midpoint(x, y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), green);
 }
 
+function drawMarker(iso, x, y, color) {
+    var drawColor = color || green;
+    var START_X = x * UNIT + UNIT / 2;
+    var START_Y = y * UNIT + UNIT / 2;
+    iso.add(Shape.Prism(Point(START_X, START_Y, 0), UNIT / 10, UNIT / 10, UNIT / 2), drawColor);
+    iso.add(Shape.Prism(Point(START_X, START_Y, UNIT / 2), UNIT / 2, UNIT / 10, UNIT / 2), drawColor);
+}
+
 function drawFlower(iso, x, y, height) {
     //Stem
     iso.add(Shape.Cylinder(midpoint(x, y), SEED_UNIT / 2, 12, UNIT * height), green);
@@ -87,6 +95,6 @@ export function isoDraw(map, canvasId) {
 
     map.tiles.forEach(function(tile) {
         var rgb = hexToRgb(tile.color);
-        drawSeedlings(iso, tile.location.x, tile.location.y, new Color(rgb.r, rgb.g, rgb.b));
+        drawMarker(iso, tile.location.x, tile.location.y, new Color(rgb.r, rgb.g, rgb.b));
     });
 }
