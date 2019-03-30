@@ -4,7 +4,6 @@ this.properties = opts.properties || [];
 let self = this;
 
 riot.store.on("plant", function(plant) {
-    console.log(self.properties);
     self.properties = Object.entries(plant.properties);
     self.update();
 });

@@ -45,6 +45,17 @@ $(document).ready(function(){
 		}
     });
 
+    $("#month-overlay .btn").click(function(evt) {
+        if($("#changeView").prop('checked')) {
+            return;
+        } else {
+            ctx.clearRect(0, 0, 600, 450);
+            //TODO replace this selector
+            let currentMonth = $(this).find('input').val();
+            isoDraw(map, "canvas", currentMonth);
+        }
+    });
+
     $("#changeView").change(function(evt) {
         ctx.clearRect(0, 0, 600, 450);
         if($(this).prop('checked')) {

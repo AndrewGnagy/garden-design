@@ -1,3 +1,5 @@
+import { Plant } from "./plant.js";
+
 var Point  = Isomer.Point;
 var Path   = Isomer.Path;
 var Shape  = Isomer.Shape;
@@ -85,16 +87,32 @@ function drawFlower(iso, x, y, height) {
     ]), red);
 }
 
-export function isoDraw(map, canvasId) {
+export function isoDraw(map, canvasId, month) {
     var iso = new Isomer(document.getElementById(canvasId));
 
     drawGrid(iso);
-    drawSeedlings(iso, 0, 0);
-    drawSeedling(iso, 0, 1);
-    drawFlower(iso, 3, 3, 2);
+    //drawSeedlings(iso, 0, 0);
+    //drawSeedling(iso, 0, 1);
+    //drawFlower(iso, 3, 3, 2);
+
+    //TODO less janky selector
+    let currentMonth = month || $('#month-overlay .active > input').val();
+    let growZone = 6;
 
     map.tiles.forEach(function(tile) {
         var rgb = hexToRgb(tile.color);
-        drawMarker(iso, tile.location.x, tile.location.y, new Color(rgb.r, rgb.g, rgb.b));
+        let growInfo = new Plant(tile.plantId).getGrowInfo(growZone);
+        //Unplanted Marker
+        if (currentMonth < growInfo.germ) {
+            drawMarker(iso, tile.location.x, tile.location.y, new Color(rgb.r, rgb.g, rgb.b));
+        //Germinated + 1 month
+        } else if (currentMonth > growInfo.germ) {
+            //TODO actual height calculation based on plant size!
+            let height = currentMonth - growInfo.germ;
+            drawFlower(iso, tile.location.x, tile.location.y, height);
+        //Just germinated
+        } else {
+            drawSeedlings(iso, tile.location.x, tile.location.y);
+        }
     });
 }

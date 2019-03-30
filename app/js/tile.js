@@ -5,7 +5,7 @@ function point(x, y, canvas){
 }
 
 export function Tile(x, y, plant) {
-    plant = plant || { tileColor: "#00BB00", tilePattern: "dots" };
+    plant = plant || { tileColor: "#00BB00", tilePattern: "dots", id: -1 };
     let self = this;
     //X,Y Coordinates
     this.location = { x: x, y: y }
@@ -13,6 +13,7 @@ export function Tile(x, y, plant) {
     this.light = 50;
     this.color = plant.tileColor;
     this.pattern = plant.tilePattern;
+    this.plantId = plant.id;
 
     this.draw = function(ctx) {
         var xStart = self.location.x * TILE_SIZE

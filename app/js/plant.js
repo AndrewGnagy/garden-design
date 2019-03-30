@@ -1,6 +1,50 @@
-export function Plant() {
+export function Plant(plantItem) {
+   let self = this;
+   if (typeof plantItem === "number") {
+      self.plantItem = _.find(plantList, {"id": plantItem });
+   } else if (plantItem) {
+      self.plantItem = plantItem;
+   }
 
+   this.getGrowInfo = function(zone) {
+      let growInfo = {};
+      //Defaults (no plant info)
+      growInfo["sow"] = _.find(growingZones, {"zone": zone }).lastFrostAvg;
+      growInfo["germ"] = growInfo.sow + 1;
+      return growInfo;
+   }
 }
+
+const growingZones = [
+   {
+      "zone": 2,
+      "lastFrostAvg": 6
+   },
+   {
+      "zone": 3,
+      "lastFrostAvg": 6
+   },
+   {
+      "zone": 4,
+      "lastFrostAvg": 5
+   },
+   {
+      "zone": 5,
+      "lastFrostAvg": 5
+   },
+   {
+      "zone": 6,
+      "lastFrostAvg": 4
+   },
+   {
+      "zone": 7,
+      "lastFrostAvg": 4
+   },
+   {
+      "zone": 8,
+      "lastFrostAvg": 3
+   }
+];
 
 export const plantList = [
    {
@@ -1202,4 +1246,4 @@ export const plantList = [
       "name": "Zinnias",
       "id": 82
    }
-]
+];
