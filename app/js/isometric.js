@@ -53,22 +53,33 @@ function drawSeedlings(iso, x, y, color) {
     var drawColor = color || green;
     var START_X = x * UNIT + UNIT / 2;
     var START_Y = y * UNIT + UNIT / 2;
-    iso.add(Shape.Pyramid(Point(x * UNIT, y * UNIT), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
-    iso.add(Shape.Pyramid(Point(x * UNIT, START_Y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
-    iso.add(Shape.Pyramid(Point(START_X, START_Y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
-    iso.add(Shape.Pyramid(Point(START_X, y * UNIT), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
+    iso.add(Shape.Pyramid(new Point(x * UNIT, y * UNIT), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
+    iso.add(Shape.Pyramid(new Point(x * UNIT, START_Y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
+    iso.add(Shape.Pyramid(new Point(START_X, START_Y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
+    iso.add(Shape.Pyramid(new Point(START_X, y * UNIT), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), drawColor);
 }
 
 function drawSeedling(iso, x, y) {
     iso.add(Shape.Pyramid(midpoint(x, y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), green);
 }
 
+function drawRock(iso, x, y) {
+    var ROCK_UNIT = UNIT / 5;
+    var START_X = x * UNIT + ROCK_UNIT;
+    var START_Y = y * UNIT + ROCK_UNIT;
+    iso.add([
+        Shape.Prism(new Point(START_X, START_Y, 0), ROCK_UNIT * 4, ROCK_UNIT * 4, ROCK_UNIT * 2),
+        Shape.Prism(new Point(START_X - ROCK_UNIT, START_Y + ROCK_UNIT, 0), ROCK_UNIT, ROCK_UNIT * 2, ROCK_UNIT),
+        Shape.Prism(new Point(START_X + ROCK_UNIT, START_Y - ROCK_UNIT, 0), ROCK_UNIT * 3, ROCK_UNIT, ROCK_UNIT * 1.5)
+      ]);
+}
+
 function drawMarker(iso, x, y, color) {
     var drawColor = color || green;
     var START_X = x * UNIT + UNIT / 2;
     var START_Y = y * UNIT + UNIT / 2;
-    iso.add(Shape.Prism(Point(START_X, START_Y, 0), UNIT / 10, UNIT / 10, UNIT / 2), drawColor);
-    iso.add(Shape.Prism(Point(START_X, START_Y, UNIT / 2), UNIT / 2, UNIT / 10, UNIT / 2), drawColor);
+    iso.add(Shape.Prism(new Point(START_X, START_Y, 0), UNIT / 10, UNIT / 10, UNIT / 2), drawColor);
+    iso.add(Shape.Prism(new Point(START_X, START_Y, UNIT / 2), UNIT / 2, UNIT / 10, UNIT / 2), drawColor);
 }
 
 function drawFlower(iso, x, y, height) {
@@ -80,10 +91,10 @@ function drawFlower(iso, x, y, height) {
     var X_OFFSET = x * UNIT + MIDWAY + UNIT / 2;
     var Y_OFFSET = y * UNIT + MIDWAY + UNIT / 2;
     iso.add(new Path([
-        Point(x * UNIT + MIDWAY, y * UNIT + MIDWAY, UNIT * height),
-        Point(x * UNIT + MIDWAY, Y_OFFSET, UNIT * height),
-        Point(X_OFFSET, Y_OFFSET, UNIT * height),
-        Point(X_OFFSET, y * UNIT + MIDWAY, UNIT * height)
+        new Point(x * UNIT + MIDWAY, y * UNIT + MIDWAY, UNIT * height),
+        new Point(x * UNIT + MIDWAY, Y_OFFSET, UNIT * height),
+        new Point(X_OFFSET, Y_OFFSET, UNIT * height),
+        new Point(X_OFFSET, y * UNIT + MIDWAY, UNIT * height)
     ]), red);
 }
 
@@ -94,6 +105,7 @@ export function isoDraw(map, canvasId, month) {
     //drawSeedlings(iso, 0, 0);
     //drawSeedling(iso, 0, 1);
     //drawFlower(iso, 3, 3, 2);
+    drawRock(iso, 7, 8);
 
     //TODO less janky selector
     let currentMonth = month || $('#month-overlay .active > input').val();
