@@ -48,6 +48,14 @@ const growingZones = [
 
 export const plantList = [
    {
+      "tileColor": "#555555",
+      "tilePattern": "rock",
+      "name": "Rock",
+      "id": 0,
+      "class": "landscape",
+      "properties": {}
+   },
+   {
       "properties": {
          "height": 4,
          "spread": 6,
