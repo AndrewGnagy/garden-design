@@ -63,15 +63,14 @@ function drawSeedling(iso, x, y) {
     iso.add(Shape.Pyramid(midpoint(x, y), SEED_UNIT, SEED_UNIT, 2 * SEED_UNIT), green);
 }
 
-//TODO randomize rock shape
-function drawRock(iso, x, y) {
-    var ROCK_UNIT = UNIT / 5;
+function drawRock(iso, x, y, scale) {
+    var ROCK_UNIT = (UNIT / 5) * scale;
     var START_X = x * UNIT + ROCK_UNIT;
     var START_Y = y * UNIT + ROCK_UNIT;
     iso.add([
-        Shape.Prism(new Point(START_X, START_Y, 0), ROCK_UNIT * 4, ROCK_UNIT * 4, ROCK_UNIT * 2),
-        Shape.Prism(new Point(START_X - ROCK_UNIT, START_Y + ROCK_UNIT, 0), ROCK_UNIT, ROCK_UNIT * 2, ROCK_UNIT),
-        Shape.Prism(new Point(START_X + ROCK_UNIT, START_Y - ROCK_UNIT, 0), ROCK_UNIT * 3, ROCK_UNIT, ROCK_UNIT * 1.5)
+        Shape.Prism(new Point(START_X, START_Y, 0), ROCK_UNIT * (Math.random() + 3), ROCK_UNIT * (Math.random() + 3), ROCK_UNIT * 2),
+        Shape.Prism(new Point(START_X - ROCK_UNIT, START_Y + ROCK_UNIT, 0), ROCK_UNIT, ROCK_UNIT * (Math.random() * 1.5 + 1), ROCK_UNIT),
+        Shape.Prism(new Point(START_X + ROCK_UNIT, START_Y - ROCK_UNIT, 0), ROCK_UNIT * (Math.random() * 1.5 + 1), ROCK_UNIT, ROCK_UNIT * 1.5)
     ]);
 }
 
@@ -112,12 +111,15 @@ export function isoDraw(map, canvasId, month) {
     let currentMonth = month || $('#month-overlay .active > input').val();
     let growZone = 6;
 
+    //TODO insure draw order is back-to-front
     map.tiles.forEach(function(tile) {
         var rgb = hexToRgb(tile.color);
         let plant = new Plant(tile.plantId);
         let growInfo = plant.getGrowInfo(growZone);
         if (plant.plantItem.class == "landscape") {
-            drawRock(iso, tile.location.x, tile.location.y);
+            //TODO for testing only. Replace with real logic for >1 tile items
+            let isBigRock = tile.plantId == 1;
+            drawRock(iso, tile.location.x, tile.location.y, isBigRock ? 2 : 1);
             return;
         }
         //Unplanted Marker

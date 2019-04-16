@@ -56,6 +56,18 @@ export const plantList = [
       "properties": {}
    },
    {
+      "tileColor": "#555555",
+      "tilePattern": "rock",
+      "name": "Big Rock",
+      "id": 1,
+      "class": "landscape",
+      "stamp": {
+         "x": 2,
+         "y": 2
+      },
+      "properties": {}
+   },
+   {
       "properties": {
          "height": 4,
          "spread": 6,
