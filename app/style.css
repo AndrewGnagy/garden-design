@@ -5,10 +5,6 @@ div#container
 	width: 768px;
 }
 
-#mainapp
-{
-}
-
 /* #canvas-container
 {
     position: relative;
@@ -25,10 +21,6 @@ div#container
 {
 	position: absolute;
 } */
-
-#info-panel
-{
-}
 
 .plant-select-container
 {
@@ -53,14 +45,6 @@ div#container
     padding: 10px 10px;
 	display: block;
 	float: left;
-}
-
-.plant-title
-{
-}
-
-.plant-info
-{
 }
 
 .plant-selected
