@@ -71,6 +71,11 @@ $(document).ready(function(){
         }
     });
 
+    $("#changeUnits").change(function(evt) {
+        riot.store.trigger("changeUnits", !evt.target.checked);
+    });
+
+
     start();
 })
 
