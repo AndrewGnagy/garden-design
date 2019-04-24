@@ -98,6 +98,46 @@ function drawFlower(iso, x, y, height) {
     ]), red);
 }
 
+function drawVine(iso, x, y) {
+    var TREL = UNIT / 7;
+    var chunk = TREL * 2;
+    var runningHeight = 0;
+    var START_X = ((x + 1) * UNIT) - 2 * TREL;
+    var START_Y = ((y + 1) * UNIT);
+    var slide = START_Y;
+    var slide2 = START_Y;
+    var diameter = TREL * .5;
+    for(var i = 0; i < 20; i++) {
+        iso.add(Shape.Cylinder(new Point(START_X, slide, runningHeight), diameter, 12, chunk), green);
+        iso.add(Shape.Cylinder(new Point(START_X, slide2, runningHeight), diameter, 12, chunk), green);
+        runningHeight += chunk;
+        chunk = chunk / 1.1;
+        var randSkew = Math.random() / 1.5 * ((Math.random() > .5) ? 1 : -1);
+        slide += Math.min(randSkew + (Math.random() / 2.5), 1) * TREL;
+        slide2 += Math.max(randSkew - (Math.random() / 2.5), -1) * TREL;
+        diameter = diameter / 1.02;
+    }
+}
+
+function drawTrellis(iso, x, y) {
+    var TREL = UNIT / 7;
+    var START_X = ((x + 1) * UNIT) - TREL;
+    var START_Y = (y * UNIT) + (3 * TREL);
+    iso.add([
+        Shape.Prism(new Point(START_X, START_Y + 9 * TREL, 14 * TREL), TREL, 2 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + 9 * TREL, 8 * TREL), TREL, 2 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + 8 * TREL, 0), TREL, TREL, 20 * TREL),
+        Shape.Prism(new Point(START_X, START_Y + 5 * TREL, 14 * TREL), TREL, 3 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + 5 * TREL, 8 * TREL), TREL, 3 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + 4 * TREL, 0), TREL, TREL, 20 * TREL),
+        Shape.Prism(new Point(START_X, START_Y + TREL, 14 * TREL), TREL, 3 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + TREL, 8 * TREL), TREL, 3 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + 0, 0), TREL, TREL, 20 * TREL),
+        Shape.Prism(new Point(START_X, START_Y + -2 * TREL, 14 * TREL), TREL, 2 * TREL, TREL),
+        Shape.Prism(new Point(START_X, START_Y + -2 * TREL, 8 * TREL), TREL, 2 * TREL, TREL)
+    ]);
+}
+
 export function isoDraw(map, canvasId, month) {
     var iso = new Isomer(document.getElementById(canvasId));
 
@@ -106,6 +146,8 @@ export function isoDraw(map, canvasId, month) {
     //drawSeedling(iso, 0, 1);
     //drawFlower(iso, 3, 3, 2);
     //drawRock(iso, 7, 8);
+    //drawTrellis(iso, 7, 8);
+    //drawVine(iso, 7, 8);
 
     //TODO less janky selector
     let currentMonth = month || $('#month-overlay .active > input').val();
