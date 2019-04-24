@@ -98,7 +98,9 @@ function drawFlower(iso, x, y, height) {
     ]), red);
 }
 
-function drawVine(iso, x, y) {
+function drawVine(iso, x, y, height) {
+    //height 1-5
+    var iters = height * 4;
     var TREL = UNIT / 7;
     var chunk = TREL * 2;
     var runningHeight = 0;
@@ -106,8 +108,8 @@ function drawVine(iso, x, y) {
     var START_Y = ((y + 1) * UNIT);
     var slide = START_Y;
     var slide2 = START_Y;
-    var diameter = TREL * .5;
-    for(var i = 0; i < 20; i++) {
+    var diameter = TREL * .2 + TREL * .3 * (iters * .05);
+    for(var i = 0; i < iters; i++) {
         iso.add(Shape.Cylinder(new Point(START_X, slide, runningHeight), diameter, 12, chunk), green);
         iso.add(Shape.Cylinder(new Point(START_X, slide2, runningHeight), diameter, 12, chunk), green);
         runningHeight += chunk;
@@ -147,7 +149,9 @@ export function isoDraw(map, canvasId, month) {
     //drawFlower(iso, 3, 3, 2);
     //drawRock(iso, 7, 8);
     //drawTrellis(iso, 7, 8);
-    //drawVine(iso, 7, 8);
+    drawVine(iso, 7, 8, 1);
+    drawVine(iso, 5, 8, 3);
+    drawVine(iso, 3, 8, 5);
 
     //TODO less janky selector
     let currentMonth = month || $('#month-overlay .active > input').val();
