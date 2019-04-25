@@ -545,21 +545,6 @@ export const plantList = [
    },
    {
       "properties": {
-         "height": 11,
-         "spread": 9,
-         "sun": "Full Sun",
-         "lifeCycle": "Annual",
-         "use": [
-         "Beds",
-         "Borders"
-         ]
-      },
-      "tileColor": "#1D12A7",
-      "name": "Flowers for Cutting",
-      "id": 37
-   },
-   {
-      "properties": {
          "height": 33,
          "spread": 14,
          "sun": "Full Sun",
@@ -651,21 +636,6 @@ export const plantList = [
       "tileColor": "#C531A6",
       "name": "Gomphrena",
       "id": 43
-   },
-   {
-      "properties": {
-         "height": 2,
-         "spread": 9,
-         "sun": "Full Sun",
-         "lifeCycle": "Annual",
-         "sowMethod": "Indoor Sow",
-         "use": [
-         "Beds"
-         ]
-      },
-      "tileColor": "#9456B0",
-      "name": "Ice Plants",
-      "id": 44
    },
    {
       "properties": {
@@ -930,7 +900,7 @@ export const plantList = [
          ]
       },
       "tileColor": "#EF8779",
-      "name": "Phlox Flowers",
+      "name": "Phlox",
       "id": 61
    },
    {
@@ -1219,21 +1189,6 @@ export const plantList = [
       "tileColor": "#618FA0",
       "name": "Vincas",
       "id": 79
-   },
-   {
-      "properties": {
-         "height": 180,
-         "spread": 108,
-         "sun": "Full Sun",
-         "lifeCycle": "Annual",
-         "sowMethod": "Direct Sow/Indoor Sow",
-         "use": [
-         "Trellis or Lattice"
-         ]
-      },
-      "tileColor": "#9D22AE",
-      "name": "Vines and Climbers",
-      "id": 80
    },
    {
       "properties": {

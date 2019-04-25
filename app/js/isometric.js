@@ -161,6 +161,12 @@ function drawTrellis(iso, x, y) {
     ]);
 }
 
+function scaleHeight(month, germMonth, fullHeight) {
+    //UNIT ~= 12 inches
+    //Assume linear growth between germination and full height (3 months of growth)
+    return Math.min((Math.max(month - germMonth, 1) / 3), 1) * (fullHeight / 12);
+}
+
 export function isoDraw(map, canvasId, month) {
     var iso = new Isomer(document.getElementById(canvasId));
 
@@ -170,15 +176,16 @@ export function isoDraw(map, canvasId, month) {
     //drawFlower(iso, 3, 3, 2);
     //drawRock(iso, 7, 8);
     //drawTrellis(iso, 7, 8);
-    drawVine(iso, 7, 8, 1);
-    drawGroundCover(iso, 1, 2, .4);
+    //drawVine(iso, 7, 8, 1);
+    //drawGroundCover(iso, 1, 2, .4);
 
     //TODO less janky selector
     let currentMonth = month || $('#month-overlay .active > input').val();
     let growZone = 6;
 
-    //TODO insure draw order is back-to-front
-    map.tiles.forEach(function(tile) {
+    let sortedTiles = _.sortBy(map.tiles, [(p) => { return p.location.x }, (p) => { return p.location.y }]);
+    sortedTiles.reverse();
+    sortedTiles.forEach(function(tile) {
         var rgb = hexToRgb(tile.color);
         let plant = new Plant(tile.plantId);
         let growInfo = plant.getGrowInfo(growZone);
@@ -193,9 +200,7 @@ export function isoDraw(map, canvasId, month) {
             drawMarker(iso, tile.location.x, tile.location.y, new Color(rgb.r, rgb.g, rgb.b));
         //Germinated + 1 month
         } else if (currentMonth > growInfo.germ) {
-            //TODO actual height calculation based on plant size!
-            let height = currentMonth - growInfo.germ;
-            drawFlower(iso, tile.location.x, tile.location.y, height);
+            drawFlower(iso, tile.location.x, tile.location.y, scaleHeight(currentMonth, growInfo.germ, plant.plantItem.properties.height));
         //Just germinated
         } else {
             drawSeedlings(iso, tile.location.x, tile.location.y);
