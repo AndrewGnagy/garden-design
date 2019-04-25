@@ -16,6 +16,7 @@ var TILES_Y = 20;
 var green = new Color(50, 160, 60);
 var red = new Color(160, 50, 60);
 var blue = new Color(50, 60, 160);
+var white = new Color(180, 180, 180);
 
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -100,7 +101,7 @@ function drawFlower(iso, x, y, height) {
 
 function drawVine(iso, x, y, height) {
     //height 1-5
-    var iters = height * 4;
+    var iters = Math.floor(height * 4);
     var TREL = UNIT / 7;
     var chunk = TREL * 2;
     var runningHeight = 0;
@@ -118,6 +119,26 @@ function drawVine(iso, x, y, height) {
         slide += Math.min(randSkew + (Math.random() / 2.5), 1) * TREL;
         slide2 += Math.max(randSkew - (Math.random() / 2.5), -1) * TREL;
         diameter = diameter / 1.02;
+    }
+}
+
+function drawGroundCover(iso, x, y, height) {
+    var START_X = x * UNIT;
+    var START_Y = y * UNIT;
+    iso.add(Shape.Prism(new Point(START_X, START_Y, 0), UNIT, UNIT, height * UNIT), green);
+    for (var i = 0, x1 = 2, y1 = 2; i < 9; i++) {
+        iso.add(Shape.Pyramid(new Point(START_X + (x1 * UNIT/3), START_Y + (y1 * UNIT/3), height * UNIT), UNIT/3, UNIT/3, UNIT/3), green);
+        if(x1 == 0) {
+            x1 = 2;
+            y1--;
+        } else {
+            x1--;
+        }
+        //Flowers
+        if(i ==4 || i == 6 || i == 3) {
+            var point = new Point(START_X + UNIT * .25 + x1 * UNIT/3, START_Y + UNIT * .1 + y1 * UNIT/3, height * UNIT);
+            iso.add(Shape.Cylinder(point, .03 * UNIT, 5, .4 * UNIT), white);
+        }
     }
 }
 
@@ -150,8 +171,7 @@ export function isoDraw(map, canvasId, month) {
     //drawRock(iso, 7, 8);
     //drawTrellis(iso, 7, 8);
     drawVine(iso, 7, 8, 1);
-    drawVine(iso, 5, 8, 3);
-    drawVine(iso, 3, 8, 5);
+    drawGroundCover(iso, 1, 2, .4);
 
     //TODO less janky selector
     let currentMonth = month || $('#month-overlay .active > input').val();
