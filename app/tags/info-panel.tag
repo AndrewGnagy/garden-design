@@ -1,4 +1,6 @@
 <info-panel>
+    <h2>Description</h2>
+    <p>{description}</p>
     <h2>Properties</h2>
     <div each={ property in properties }>
         <p>{property[0]}: {convertUnit(property[1])}</p>
@@ -8,6 +10,7 @@
 <script>
 
 this.properties = opts.properties || [];
+this.description = opts.description || [];
 let self = this;
 this.metric = false;
 
@@ -29,6 +32,7 @@ riot.store.on("changeUnits", function(metric) {
 
 riot.store.on("plant", function(plant) {
     self.properties = Object.entries(plant.properties);
+    self.description = plant.description;
     self.update();
 });
 

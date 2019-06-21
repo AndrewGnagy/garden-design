@@ -79,9 +79,11 @@ export const plantList = [
          "Container"
          ]
       },
+      "draw": "groundCover",
       "tileColor": "#258968",
       "tilePattern": "stripes",
       "name": "Alyssum",
+      "description": " Lobularia maritima is an annual plant (rarely a short-lived perennial plant) growing to 5–30 cm (2–12 in) tall by 20–30 cm (8–12 in) broad. The stem is very branched, with dense clusters of small flowers. The leaves are 1–4 mm long and 3–5 mm, broad, alternate, sessile, quite hairy, oval to lanceolate, with an entire margin. The flowers are about 5 millimetres (0.20 in) in diameter, sweet-smelling, with an aroma similar to that of honey, with four white rounded petals (or pink, rose-red, violet and lilac) and four sepals. The six stamens have yellow anthers. The flowers are produced throughout the growing season, or year-round in areas free of frost. They are pollinated by insects. The fruits are numerous elongated seedpods rather hairy, oval to rounded, each containing two seeds. The dispersal of seed is effected by the wind",
       "id": 5
    },
    {
@@ -98,6 +100,7 @@ export const plantList = [
       },
       "tileColor": "#0AC8F6",
       "name": "Amaranthus",
+      "description": "Amaranthus, collectively known as amaranth, is a cosmopolitan genus of annual or short-lived perennial plants. Some amaranth species are cultivated as leaf vegetables, pseudocereals, and ornamental plants. Most of the Amaranthus species are summer annual weeds and are commonly referred to as pigweed.",
       "id": 6
    },
    {

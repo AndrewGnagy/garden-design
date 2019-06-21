@@ -32,6 +32,13 @@ div#container
     flex-wrap: wrap;
 }
 
+.plant-info
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .plant-panel
 {
     width: 250px;

@@ -161,6 +161,29 @@ function drawTrellis(iso, x, y) {
     ]);
 }
 
+function drawSunflower(iso, x, y) {
+    var height = 12;
+    var chunk = 2;
+    var runningHeight = 0;
+    var slide = 4;
+    var slideSkew = .03;
+    var diameter = .2 + .3 * (height / 20);
+    for(var i = 0; i < height; i++) {
+        iso.add(Shape.Cylinder(new Point(0, slide, runningHeight), diameter, 12, chunk), green);
+        runningHeight += chunk;
+        chunk = chunk / 1.1;
+        slideSkew = slideSkew * 1.3;
+        slide -= slideSkew;
+        diameter = diameter / 1.02;
+    }
+
+    iso.add([Shape.Prism(new Point(0.2, slide, runningHeight - .3), .6, .3, .3),
+    Shape.Prism(new Point(1, slide, runningHeight + .2), .3, .3, .6),
+    Shape.Prism(new Point(0, slide, runningHeight), 1, .3, 1),
+    Shape.Prism(new Point(-.3, slide, runningHeight + .2), .3, .3, .6),
+    Shape.Prism(new Point(0.2, slide, runningHeight + 1), .6, .3, .3)], white);
+}
+
 function scaleHeight(month, germMonth, fullHeight) {
     //UNIT ~= 12 inches
     //Assume linear growth between germination and full height (3 months of growth)
@@ -200,7 +223,11 @@ export function isoDraw(map, canvasId, month) {
             drawMarker(iso, tile.location.x, tile.location.y, new Color(rgb.r, rgb.g, rgb.b));
         //Germinated + 1 month
         } else if (currentMonth > growInfo.germ) {
-            drawFlower(iso, tile.location.x, tile.location.y, scaleHeight(currentMonth, growInfo.germ, plant.plantItem.properties.height));
+            if (plant.plantItem.draw == "groundCover") {
+                drawGroundCover(iso, tile.location.x, tile.location.y, scaleHeight(currentMonth, growInfo.germ, plant.plantItem.properties.height));
+            } else {
+                drawFlower(iso, tile.location.x, tile.location.y, scaleHeight(currentMonth, growInfo.germ, plant.plantItem.properties.height));
+            }
         //Just germinated
         } else {
             drawSeedlings(iso, tile.location.x, tile.location.y);
