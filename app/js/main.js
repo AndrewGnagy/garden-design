@@ -28,7 +28,7 @@ function getMouseTile(evt) {
     var rect = $('#canvas')[0].getBoundingClientRect();
     return {
         x: ~~((evt.clientX - rect.left) / TILE_SIZE),
-        y: ~~((evt.clientY - rect.top) / TILE_SIZE)
+        y: ~~((rect.bottom - evt.clientY) / TILE_SIZE)
     };
 }
 

@@ -1,0 +1,24 @@
+{
+  "name": "garden-design",
+  "homepage": "https://github.com/AndrewGnagy/garden-design",
+  "authors": [
+    "Andrew Gnagy"
+  ],
+  "description": "A garden design app",
+  "main": "js/main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "riot": "3.13.2",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.25.2"
+  }
+}

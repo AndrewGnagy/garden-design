@@ -67,6 +67,7 @@ export function Map() {
             tile.draw(ctx);
         });
 
+        //Mouse outline
         let mouseXY = getMousePos(ctx.canvas);
         let xStart = Math.floor(mouseXY.x / TILE_SIZE) * TILE_SIZE;
         let yStart = Math.floor(mouseXY.y / TILE_SIZE) * TILE_SIZE;

@@ -10,7 +10,7 @@
 <script>
 
 this.properties = opts.properties || [];
-this.description = opts.description || [];
+this.description = opts.description || "";
 let self = this;
 this.metric = false;
 
