@@ -8,7 +8,7 @@ An app that allows you to select plant varieties and "stamp" them on a grid. The
 ### Tools
 Riot.js
 ```
-npm install riot -g
+npm install riot@3.13.2 -g
 ```
 To compile, just point it at the tags folder and it will re-combobulate them into a single js file
 ```
@@ -16,4 +16,4 @@ riot ./tags all-tags.js
 ```
 
 ### Running
-To run the app, you'll need to either run the npm server and visit http://localhost:8080 or use Firefox 62+
+To run the app, run the npm server and visit http://localhost:8080
