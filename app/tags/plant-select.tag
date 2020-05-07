@@ -6,7 +6,7 @@
 			<h4>{plant.name}
 				<div class="plant-colorbadge" style="background:{ plant.tileColor };"></div>
 			</h4>
-            <div class="plant-info">{ plant.description || "lorem ipsum set dolar werdna aotic" }</div>
+            <div class="plant-info">{ plant.description }</div>
 		</div>
     </div>
 </div>

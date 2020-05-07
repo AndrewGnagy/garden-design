@@ -64,6 +64,7 @@ export const plantList = [
       "name": "Rock",
       "id": 0,
       "class": "landscape",
+      "description": "A small rock",
       "properties": {}
    },
    {
@@ -73,6 +74,7 @@ export const plantList = [
       "name": "Big Rock",
       "id": 1,
       "class": "landscape",
+      "description": "A large rock",
       "stamp": {
          "x": 2,
          "y": 2

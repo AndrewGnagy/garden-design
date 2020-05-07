@@ -19,6 +19,7 @@ let blue = new Color(50, 60, 160);
 let yellow = new Color(180, 180, 20);
 let white = new Color(180, 180, 180);
 let brown = new Color(139, 69, 19);
+let lightBrown = new Color(182, 141, 105);
 
 function hexToRgb(hex) {
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -36,6 +37,15 @@ function midpoint(x, y, z) {
 }
 
 function drawGrid(iso) {
+    //Ground
+    iso.add(new Path([
+        new Point(0, 0, 0),
+        new Point(TILES_X*UNIT, 0, 0),
+        new Point(TILES_X*UNIT, TILES_Y*UNIT, 0),
+        new Point(0, TILES_Y*UNIT, 0),
+        new Point(0, 0, 0)
+    ]), lightBrown);
+    //X-lines
     for (let x = 0; x < 30; x++) {
         iso.add(new Path([
             new Point(x*UNIT, 0, 0),
@@ -43,6 +53,7 @@ function drawGrid(iso) {
             new Point(x*UNIT, 0, 0)
         ]), blue);
     }
+    //Y-lines
     for (let y = 0; y < 20; y++) {
         iso.add(new Path([
             new Point(0, y*UNIT, 0),
@@ -114,7 +125,7 @@ function drawVine(iso, x, y, height) {
     let chunk = TREL * 2;
     let runningHeight = 0;
     let START_X = ((x + 1) * UNIT) - 2 * TREL;
-    let START_Y = ((y + 1) * UNIT);
+    let START_Y = ((y + .5) * UNIT);
     let slide = START_Y;
     let slide2 = START_Y;
     let diameter = TREL * .2 + TREL * .3 * (iters * .05);

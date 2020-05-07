@@ -1,20 +1,31 @@
 import { TILE_SIZE } from "./tile.js";
 
 let mousePos = { x: 0, y: 0 };
+let drag = {};
 
-function getMousePos(canvas) {
+function getMousePos(canvas, coord) {
     var rect = canvas.getBoundingClientRect();
     return {
-        x: mousePos.x - rect.left,
-        y: mousePos.y - rect.top
+        x: coord.x - rect.left,
+        y: coord.y - rect.top
     };
 }
 
 document.addEventListener('mousemove', onMouseUpdate, false);
 document.addEventListener('mouseenter', onMouseUpdate, false);
+document.addEventListener('mousedown', setDrag, false);
+document.addEventListener('mouseup', unsetDrag, false);
 
 function onMouseUpdate(e) {
     mousePos = { x: e.pageX, y: e.pageY }
+}
+
+function setDrag(e) {
+    drag = mousePos;
+}
+
+function unsetDrag(e) {
+    drag = {}
 }
 
 export function Map() {
@@ -68,11 +79,23 @@ export function Map() {
         });
 
         //Mouse outline
-        let mouseXY = getMousePos(ctx.canvas);
-        let xStart = Math.floor(mouseXY.x / TILE_SIZE) * TILE_SIZE;
-        let yStart = Math.floor(mouseXY.y / TILE_SIZE) * TILE_SIZE;
+        let mouseXY = getMousePos(ctx.canvas, mousePos);
+        let dragXY = getMousePos(ctx.canvas, drag);
         ctx.strokeStyle = "#000000";
-        ctx.strokeRect(xStart, yStart, TILE_SIZE * self.stamp.x, TILE_SIZE * self.stamp.y);
+        if (dragXY.x) {
+            //Click-and-drag maths
+            let xMin = Math.floor(Math.min(mouseXY.x, dragXY.x) / TILE_SIZE);
+            let yMin = Math.floor(Math.min(mouseXY.y, dragXY.y) / TILE_SIZE);
+            let xMax = Math.floor(Math.max(mouseXY.x, dragXY.x) / TILE_SIZE);
+            let yMax = Math.floor(Math.max(mouseXY.y, dragXY.y) / TILE_SIZE);
+            let xStart = xMin * TILE_SIZE;
+            let yStart = (yMax + self.stamp.y) * TILE_SIZE;
+            ctx.strokeRect(xStart, yStart, TILE_SIZE * (xMax - xMin + self.stamp.x), TILE_SIZE * -1 * (yMax - yMin + self.stamp.y));
+        } else {
+            let xStart = Math.floor(mouseXY.x / TILE_SIZE) * TILE_SIZE;
+            let yStart = Math.floor(mouseXY.y / TILE_SIZE) * TILE_SIZE;
+            ctx.strokeRect(xStart, yStart, TILE_SIZE * self.stamp.x, TILE_SIZE * self.stamp.y);
+        }
     }
 
     riot.store.on("plant", function(plant) {
